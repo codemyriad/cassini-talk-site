@@ -7,7 +7,7 @@ import type { Glyph as G } from "../../data/glyphs";
 const b = nums(NUMS_STILL);
 const st = styler(b);
 const EASE = "cubic-bezier(0.32, 0.72, 0, 1)";
-const plats: [G, number][] = [["apple", 18], ["android", 18], ["apple", 18], ["windows", 16], ["linux", 18]];
+const plats: [G, number][] = [["apple", 18], ["android", 18], ["apple", 18], ["linux", 18]];
 const big = "font-size: 4rem; line-height: 1";
 ---
 
@@ -24,13 +24,13 @@ const big = "font-size: 4rem; line-height: 1";
       </div></div>
     </div>
     <div class="flex flex-col py-8 px-6 bg-base-100">
-      <p class="font-bold tabular-nums text-base-content" style={big}>5</p>
-      <p class="text-sm text-base-content/60 mt-3 text-balance">Apps available on iPhone, iPad, Android, Mac, Windows, Linux</p>
+      <p class="font-bold tabular-nums text-base-content" style={big}>4</p>
+      <p class="text-sm text-base-content/60 mt-3 text-balance">Apps available on iPhone and iPad, Android, Mac and Linux</p>
       <div class="flex-1"></div>
       <div class="pt-6"><div class="relative overflow-hidden" style="height: 24px" aria-hidden="true">
         <span class="flex items-center gap-3" style="height: 24px">
           {plats.map(([g, size], i) => (
-            <span class="inline-flex" data-k={"p" + i} style={st("p" + i, `transition: color 0.4s ease, transform 0.5s ${EASE}${g === "windows" ? "; margin: 1px" : ""}`)}><Glyph name={g} size={size} /></span>
+            <span class="inline-flex" data-k={"p" + i} style={st("p" + i, `transition: color 0.4s ease, transform 0.5s ${EASE}`)}><Glyph name={g} size={size} /></span>
           ))}
         </span>
       </div></div>

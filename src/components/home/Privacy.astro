@@ -16,12 +16,12 @@ import { href } from "../../lib/paths";
     <div class="plats w-full" style="margin-top: 32px; max-width: 70rem">
       {apps.map(app => (
         <a href={href(`download#${app.id}`)} class="plat-tile rounded-2xl bg-base-200 p-6 flex flex-col items-center gap-3 text-center" data-reveal>
-          <Glyph name={app.glyph} size={app.glyph === "windows" ? 28 : 32} class="text-base-content" style={app.glyph === "windows" ? "margin: 2px" : undefined} />
+          <Glyph name={app.glyph} size={32} class="text-base-content" />
           <p class="text-base font-semibold text-base-content">{app.name}</p>
           <p class="text-xs text-base-content/60">{app.tileCaption}</p>
         </a>
       ))}
     </div>
-    <p class="text-base text-base-content/60">Free on all five. Recordings move between them as one file.</p>
+    <p class="text-base text-base-content/60">Free on all four. Recordings move between them as one file.</p>
   </div>
 </section>

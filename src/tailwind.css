@@ -179,12 +179,12 @@ main.home>section.lang-band{padding-top:96px;padding-bottom:70px}
 @media (min-width:48rem) and (max-width:79.98rem){.lang-stage{--stage-h:190px;--cy:48px;--tilt:16deg}.lang-word{font-size:1rem}}
 @media (max-width:47.98rem){.lang-stage{--stage-h:154px;--cy:40px;--tilt:22deg;--R:252px;--persp:820px;--edge:7%;width:calc(100% + 40px);margin:0 -20px}.lang-word{font-size:0.8125rem;padding:0.15em 0.45em}}
 .plats{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
-.plats>a{flex:0 0 calc((100% - 64px) / 5)}
+.plats>a{flex:0 0 calc((100% - 48px) / 4)}
 .plat-tile{transition:background-color var(--dur-short) var(--ease-move),transform var(--dur-short) var(--ease-move),box-shadow var(--dur-short) var(--ease-move)}
 .plat-tile:hover,.plat-tile:focus-visible{background-color:color-mix(in oklab,var(--color-base-300) 70%,var(--color-base-200));transform:translateY(-3px);box-shadow:0 12px 28px -12px rgb(0 0 0 / 0.6)}
 .plat-tile:active{transform:translateY(-1px);transition-duration:0.12s}
 @media (prefers-reduced-motion: reduce){.plat-tile:hover,.plat-tile:focus-visible,.plat-tile:active{transform:none}}
-@media (max-width:63.98rem){.plats>a{flex-basis:calc((100% - 32px) / 3)}}
+@media (max-width:63.98rem){.plats>a{flex-basis:calc((100% - 16px) / 2)}}
 @media (max-width:39.98rem){.plats>a{flex-basis:calc((100% - 16px) / 2)}}
 .file-split{display:grid;gap:40px;align-items:center}
 .file-copy{align-items:center;text-align:center}

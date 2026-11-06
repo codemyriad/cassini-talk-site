@@ -27,8 +27,8 @@ export function nums(t: number): Binds {
   b.ztime = { t: pad(Math.floor(sec / 60)) + ":" + pad(sec % 60) };
   b.dot = { s: { opacity: Math.floor(t / 5) % 2 === 0 ? 1 : 0.3 } };
 
-  const litP = Math.floor(t / 9) % 5;
-  for (let i = 0; i < 5; i++) {
+  const litP = Math.floor(t / 9) % 4;
+  for (let i = 0; i < 4; i++) {
     b["p" + i] = {
       s: {
         color: i === litP ? "var(--color-primary)" : "color-mix(in oklab, var(--color-base-content) 40%, transparent)",
