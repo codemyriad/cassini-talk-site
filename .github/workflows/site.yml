@@ -6,13 +6,7 @@ name: cassini.talk site
 on:
   push:
     branches: [main]
-    paths:
-      - 'cassini-talk-site/**'
-      - '.github/workflows/cassini-talk-site.yml'
   pull_request:
-    paths:
-      - 'cassini-talk-site/**'
-      - '.github/workflows/cassini-talk-site.yml'
 
 permissions:
   contents: read
@@ -24,18 +18,15 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: cassini-talk-site
     steps:
       - uses: actions/checkout@v4
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version-file: cassini-talk-site/.nvmrc
+          node-version-file: .nvmrc
           cache: npm
-          cache-dependency-path: cassini-talk-site/package-lock.json
+          cache-dependency-path: package-lock.json
 
       - name: Install (fails if manifest/lockfile are missing or out of sync)
         run: npm ci
@@ -53,6 +44,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: cassini-talk-site-dist
-          path: cassini-talk-site/dist
+          path: dist
           retention-days: 14
           if-no-files-found: error

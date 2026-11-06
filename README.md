@@ -1,6 +1,7 @@
 # cassini.talk website
 
-This directory is the source for the public website. Edit its Astro pages and
+This repository is the source for the public website. It moved here from
+`codemyriad/gocassini` (PR #437) with its history. Edit its Astro pages and
 components here, review the pull request, and build with:
 
 ```sh
