@@ -1,7 +1,9 @@
 name: cassini.talk site
 
-# Public source validation only. Hosting, R2 uploads and rollback are managed
-# separately in the private deployment repository; this workflow needs no secrets.
+# Builds and lints every PR. After a merge to main passes, it asks the private
+# codemyriad/systems repository to deploy that commit: the R2 credentials, the
+# publisher and rollback live there. This repository holds only the token that
+# starts that workflow, in the cassini.talk environment, which only main can use.
 
 on:
   push:
@@ -47,3 +49,20 @@ jobs:
           path: dist
           retention-days: 14
           if-no-files-found: error
+
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [build]
+    runs-on: ubuntu-latest
+    environment:
+      name: cassini.talk
+      url: https://cassini.talk
+    steps:
+      - name: Start the deploy in codemyriad/systems
+        env:
+          GH_TOKEN: ${{ secrets.CASSINI_TALK_DEPLOY_TOKEN }}
+        run: |
+          set -euo pipefail
+          gh workflow run cassini-talk-site.yml --repo codemyriad/systems --ref master \
+            -f action=deploy -f source_ref="$GITHUB_SHA"
+          echo "Deploy of $GITHUB_SHA started: https://github.com/codemyriad/systems/actions/workflows/cassini-talk-site.yml" >> "$GITHUB_STEP_SUMMARY"
