@@ -11,10 +11,11 @@ npm run lint
 npm run build
 ```
 
-Public CI validates the site and keeps the generated `dist/` as a review
-artifact. Deployment is managed separately by the administrators in the private
-infrastructure repository. No hosting credentials or deployment configuration
-are needed in this public repository.
+CI validates every pull request and keeps the generated `dist/` as a review
+artifact. Each merge to `main` deploys: once the build passes, CI starts the
+deploy workflow in the private infrastructure repository, which holds the
+hosting credentials, publishes the site and checks the app downloads still
+work. This repository only holds the token that starts that workflow.
 
 The website build owns its generated pages, including `/download/` and
 `/privacy/`. App release pipelines manage the files under `/download/<platform>/`
