@@ -111,6 +111,5 @@ export const platforms = [
   { id: "ios", label: "iPhone and iPad" },
   { id: "android", label: "Android" },
   { id: "mac", label: "Mac" },
-  { id: "windows", label: "Windows" },
   { id: "linux", label: "Linux" },
 ] as const;

@@ -1,9 +1,8 @@
 import type { Glyph } from "./glyphs";
 
 /**
- * Marks a fact that is not final yet: store links that are still "#", the
- * Windows requirement, version and date, and the ink store buttons that stand
- * in for the official badges. Search for PLACEHOLDER before launch.
+ * Marks a fact that is not final yet: store links that are still "#", and the
+ * ink store buttons that stand in for the official badges. Search for PLACEHOLDER before launch.
  */
 export const PLACEHOLDER = "#";
 
@@ -18,7 +17,7 @@ export interface StoreButton {
 
 export interface App {
   /** Anchor on /download, linked from Home's platform tiles. */
-  id: "ios" | "android" | "mac" | "windows" | "linux";
+  id: "ios" | "android" | "mac" | "linux";
   name: string;
   glyph: Glyph;
   glyphSize: number;
@@ -32,7 +31,7 @@ export interface App {
   version: string;
   date?: string;
   note?: string;
-  /** Half width on the top row, or a third on the row below. */
+  /** Half width; two apps per row. */
   width: "half" | "third";
   /** Facts in this card are not confirmed yet. */
   placeholder?: boolean;
@@ -84,24 +83,8 @@ export const apps: App[] = [
     version: "",
     note: "Whistle speech model included",
     links: [{ label: "Latest release details →", href: "https://cassini.talk/download/mac/" }],
-    width: "third",
+    width: "half",
     source: "https://github.com/codemyriad/cassini-mac",
-    tileCaption: "Download",
-  },
-  {
-    id: "windows",
-    name: "Windows",
-    glyph: "windows",
-    glyphSize: 18,
-    // PLACEHOLDER: requirement, version, date, download and source are not known yet,
-    // nor whether Windows ships at launch.
-    requirement: "Coming soon",
-    blurb: "Record your microphone and the others, and calls in Chrome, Edge and Brave with each person kept apart.",
-    button: { label: "Coming soon", href: PLACEHOLDER, icon: "download" },
-    version: "",
-    width: "third",
-    placeholder: true,
-    source: PLACEHOLDER,
     tileCaption: "Download",
   },
   {
@@ -121,7 +104,7 @@ export const apps: App[] = [
     linksStyle: "group",
     version: "0.3.0",
     date: "29 Oct 2026",
-    width: "third",
+    width: "half",
     source: "https://github.com/codemyriad/cassini-gnome",
     tileCaption: ".deb, .rpm, Arch",
   },
